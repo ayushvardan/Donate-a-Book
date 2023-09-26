@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    width: calc(33.33% - 20px);
+    box-sizing: border-box;
+  }
+
+  .card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+  }
+
+  .search-bar {
+    margin-bottom: 20px;
+    width: 80%;
+    max-width: 600px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .sort-buttons {
+    margin-bottom: 20px;
+  }
+
+  .sort-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+
+  .sort-button:hover {
+    background-color: #0056b3;
+  }
+
+  select {
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+</style>
+<title>Book Store</title>
+</head>
+<body>
+  <input type="text" class="search-bar" placeholder="Search books...">
+  <div class="sort-buttons">
+    <button class="sort-button" id="sortPriceHigh">Sort by Price (High to Low)</button>
+    <button class="sort-button" id="sortPriceLow">Sort by Price (Low to High)</button>
+    <select id="sortCategory" class="sort-button">
+      <option value="all">All Categories</option>
+      <option value="fiction">Fiction</option>
+      <option value="nonfiction">Non-Fiction</option>
+      <option value="sci-fi">Science Fiction</option>
+      <option value="fantasy">Fantasy</option>
+    </select>
+  </div>
+  <div class="container" id="bookContainer">
+    <!-- Dynamically added book cards will go here -->
+  </div>
+
+  <!-- <script>
+    // Example data for book cards
+    const books = [
+      { title: "Book 1", author: "Author 1", price: "$19.99", category: "fiction", image: "book1.jpg" },
+      { title: "Book 2", author: "Author 2", price: "$14.99", category: "fantasy", image: "book2.jpg" },
+      // Add more book objects as needed
+    ];
+
+    const bookContainer = document.getElementById("bookContainer");
+
+    // Function to generate book cards
+    function generateBookCard(book) {
+      const card = document.createElement("div");
+      card.classList.add("card");
+      card.innerHTML = `
+        <img src="${book.image}" alt="${book.title}">
+        <h3>${book.title}</h3>
+        <p>Author: ${book.author}</p>
+        <p>Price: ${book.price}</p>
+        <p>Category: ${book.category}</p>
+      `;
+      return card;
+    }
+
+    // Display all book cards initially
+    books.forEach(book => {
+      const card = generateBookCard(book);
+      bookContainer.appendChild(card);
+    });
+
+    // Sort by Price buttons event listeners
+    document.getElementById("sortPriceHigh").addEventListener("click", () => {
+      books.sort((a, b) => parseFloat(b.price.slice(1)) - parseFloat(a.price.slice(1)));
+      updateBookDisplay();
+    });
+
+    document.getElementById("sortPriceLow").addEventListener("click", () => {
+      books.sort((a, b) => parseFloat(a.price.slice(1)) - parseFloat(b.price.slice(1)));
+      updateBookDisplay();
+    });
+
+    // Sort by Category dropdown event listener
+    document.getElementById("sortCategory").addEventListener("change", event => {
+      const selectedCategory = event.target.value;
+      if (selectedCategory === "all") {
+        updateBookDisplay();
+      } else {
+        const filteredBooks = books.filter(book => book.category === selectedCategory);
+        updateBookDisplay(filteredBooks);
+      }
+    });
+
+    // Function to update the book display based on current data
+    function updateBookDisplay(filteredBooks = books) {
+      bookContainer.innerHTML = "";
+      filteredBooks.forEach(book => {
+        const card = generateBookCard(book);
+        bookContainer.appendChild(card);
+      });
+    }
+  </script> -->
+  <script src="/static/purchase.js"></script>
+</body>
+</html>

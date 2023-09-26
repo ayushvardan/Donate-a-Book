@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            text-align: center;
+        }
+        form {
+            display: grid;
+            gap: 10px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="tel"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group {
+            display: grid;
+            gap: 5px;
+        }
+        .form-group.country-state {
+            grid-template-columns: 1fr 1fr;
+        }
+        .submit-button {
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Registration Form</h2>
+        <form action="\userregistration" method="post">
+            <div class="form-group">
+                <label for="firstname">First Name <span>*</span></label>
+                <input type="text" id="firstname" name="firstname" required>
+            </div>
+            <div class="form-group">
+                <label for="lastname">Last Name <span>*</span></label>
+                <input type="text" id="lastname" name="lastname" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email <span>*</span></label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender <span>*</span></label>
+                <select id="gender" name="gender" required>
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="mobile">Mobile</label>
+                <input type="tel" id="mobile" name="mobile">
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob">
+            </div>
+            <div class="form-group">
+                <label for="password">Password <span>*</span></label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password <span>*</span></label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+            </div>
+            <div class="form-group country-state">
+                <label for="country">Country</label>
+                <select id="country" name="country">
+                    <option value="">Select Country</option>
+                    <!-- Add your country options here -->
+                </select>
+                <label for="state">State</label>
+                <select id="state" name="state">
+                    <option value="">Select State</option>
+                    <!-- Add your state options here -->
+                </select>
+            </div>
+            <div class="submit-button">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
